@@ -1,0 +1,9 @@
+Phase 0 — Workbench
+0.1 Repo scaffold and test harness
+0.2 Load the policy
+0.3 Batched generation with padding
+0.4 Per-token logprobs (gate 1)
+0.5 Seeding and determinism (gate 2)
+0.6 Run logger
+0.7 Checkpoint and resume (gate 3)
+0.8 Gate run and tag
