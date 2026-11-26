@@ -1,0 +1,17 @@
+Chapter 0 — The Workbench: before anything learns
+question: What must be in place before a model can learn from a reward?
+
+0.1 Repo scaffold and test harness
+why: Every later chapter imports this shared core, and an RL result is only worth trusting if the code under it is tested.
+
+0.2 Load the policy
+why: In RL the model is the policy: given the prompt and the tokens so far it chooses the next token. Pinning model, dtype and prompt format makes rollouts comparable; stop tokens define where an episode ends.
+
+0.3 Batched generation with padding (gate: batched generation)
+why: RL learns from the policy’s own samples (rollouts), and GRPO needs a group per prompt, so they are generated in batches; the completion mask marks the only tokens the loss will touch.
+
+0.4 Per-token logprobs (gate: logprobs)
+why: Every policy-gradient loss is built on log πθ(token | context); the trainer must recompute exactly what the sampler saw, and any gap is the training–inference mismatch.
+
+0.5 Gate run and tag
+why: Proves the workbench is trustworthy before Chapter 1 builds the first full RL loop on top of it.
